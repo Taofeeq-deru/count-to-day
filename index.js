@@ -41,6 +41,8 @@ const countDObj = {
   seconds: "",
 };
 
+const pathnamee = window?.location?.pathname;
+
 function CountDownToDay(
   dayOfWeek,
   countDownCb,
@@ -48,7 +50,7 @@ function CountDownToDay(
   isInfinite = false,
   countDDate,
   count = countDObj,
-  pathname = window.location.pathname
+  pathname = pathnamee
 ) {
   if (!dayOfWeek) return null;
   if (typeof dayOfWeek !== "string") throw new Error("Invalid day");
@@ -95,7 +97,7 @@ function CountDownToDay(
     countDownDate = new Date(`${nextDDayToLocaleString} ${timeToCountTo}`);
   }
 
-  const path = window.location.pathname;
+  const path = window?.location?.pathname;
 
   // Find the distance between now and the count down date
   const now = new Date().getTime();
@@ -163,3 +165,5 @@ function CountDownToDay(
     }, 1000);
   }
 }
+
+module.exports = { CountDownToDay };
