@@ -1,0 +1,33 @@
+{
+  "name": "count-to-day",
+  "version": "1.0.0",
+  "description": "A simple javascript package that calculates countdown to a particular day of the week",
+  "main": "index.js",
+  "types": "types/index.d.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Taofeeq-deru/count-to-day.git"
+  },
+  "keywords": [
+    "countdown",
+    "countdown-timer",
+    "count-to-day",
+    "countdown-to-day",
+    "date",
+    "day-counter",
+    "javascript",
+    "react",
+    "vuew",
+    "angular",
+    "next"
+  ],
+  "author": "Taofeeq Oluderu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Taofeeq-deru/count-to-day/issues"
+  },
+  "homepage": "https://github.com/Taofeeq-deru/count-to-day#readme"
+}
