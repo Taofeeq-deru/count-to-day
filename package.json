@@ -1,6 +1,6 @@
 {
   "name": "count-to-day",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A simple javascript package that calculates countdown to a particular day of the week",
   "main": "index.js",
   "types": "types/index.d.ts",
