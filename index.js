@@ -68,6 +68,8 @@ function CountDownToDay(
     const todayDate = new Date();
     const today = todayDate.getDay();
 
+    let diff = dDay - today;
+
     if (today > dDay) {
       diff = dDay - today + 7;
     } else if (today === dDay) {
