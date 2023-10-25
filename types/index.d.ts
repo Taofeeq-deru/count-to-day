@@ -7,6 +7,7 @@ declare module "count-to-day" {
    * @param {string} dayOfWeek the day of the week: 'sunday' | 'monday' | 'tuesday' | 'wednesday' | 'thursday' | 'friday' | 'saturday'
    * @param {function} countDownCb call back function whose params contains the countdown object: {days: number, hours: number, minutes: number, seconds: number }
    * @param {string} timeToCountTo not mandatory. The time to count to, uses 24 hours clock time  e.g '12:00:00', '16:00:00', '1:00:00'. Defaults to '00:00:00' (12 midnight)
+   * @param {boolean} isInfinite not mandatory. A boolean flag that determines if the time should restart after the date to countdown to is reached. Defaults to false
    */
   export function CountDownToDay(
     dayOfWeek:
@@ -23,6 +24,7 @@ declare module "count-to-day" {
       minutes: number;
       seconds: number;
     }) => void,
-    timeToCountTo?: string
+    timeToCountTo?: string,
+    isInfinite?: boolean
   ): null;
 }

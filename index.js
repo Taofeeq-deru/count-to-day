@@ -45,6 +45,7 @@ function CountDownToDay(
   dayOfWeek,
   countDownCb,
   timeToCountTo = "00:00:00",
+  isInfinite = false,
   countDDate,
   count = countDObj
 ) {
@@ -100,18 +101,34 @@ function CountDownToDay(
   var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
   // If the count down is finished, clear interval else return time object, call CountDownToDay after a second
-  if (distance <= 0) {
+  if (distance < 0) {
     countDownCb?.({ days: 0, hours: 0, minutes: 0, seconds: 0 });
-  } else {
-    setTimeout(() => {
-      countDownCb?.({ days, hours, minutes, seconds }),
-        CountDownToDay(dayOfWeek, countDownCb, timeToCountTo, countDownDate, {
+    if (isInfinite) {
+      setTimeout(() => {
+        if (seconds >= 0) {
+          countDownCb?.({ days, hours, minutes, seconds });
+        } else {
+          countDownCb?.({ days: 6, hours: 23, minutes: 59, seconds: 59 });
+        }
+        CountDownToDay(dayOfWeek, countDownCb, timeToCountTo, isInfinite, null, {
           ...count,
           days,
           hours,
           minutes,
           seconds,
         });
+      }, 1000);
+    }
+  } else {
+    setTimeout(() => {
+      countDownCb?.({ days, hours, minutes, seconds });
+      CountDownToDay(dayOfWeek, countDownCb, timeToCountTo, isInfinite, countDownDate, {
+        ...count,
+        days,
+        hours,
+        minutes,
+        seconds,
+      });
     }, 1000);
   }
 }
