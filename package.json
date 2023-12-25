@@ -1,6 +1,6 @@
 {
   "name": "count-to-day",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "A simple javascript package that calculates countdown to a particular day of the week",
   "main": "index.js",
   "types": "types/index.d.ts",
@@ -20,7 +20,7 @@
     "day-counter",
     "javascript",
     "react",
-    "vuew",
+    "vue",
     "angular",
     "next"
   ],

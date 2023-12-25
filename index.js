@@ -12,7 +12,7 @@ const FormatDate = (date) => {
     "September",
     "October",
     "November",
-    "December",
+    "December"
   ];
 
   var day = date.getDate();
@@ -31,18 +31,25 @@ const DAYS = [
   "wednesday",
   "thursday",
   "friday",
-  "saturday",
+  "saturday"
 ];
 
 const countDObj = {
   days: "",
   hours: "",
   minutes: "",
-  seconds: "",
+  seconds: ""
 };
+
+let stop = false;
+
+function StopCountdown() {
+  stop = true;
+}
 
 const pathnamee = () => {
   try {
+    if (stop) return "stop";
     return window.location.pathname;
   } catch (err) {
     return "";
@@ -115,8 +122,8 @@ function CountDownToDay(
   var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
   var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-  //if pathname changes, stop recursion
-  if (path !== pathname) {
+  //if pathname changes or StopCountdown was called, stop recursion
+  if (path !== pathname || path === "stop") {
     countDownCb?.({ days, hours, minutes, seconds });
   } else if (distance < 0) {
     //if distance < 0 return 0 time
@@ -142,7 +149,7 @@ function CountDownToDay(
             days,
             hours,
             minutes,
-            seconds,
+            seconds
           },
           path
         );
@@ -164,7 +171,7 @@ function CountDownToDay(
           days,
           hours,
           minutes,
-          seconds,
+          seconds
         },
         path
       );
@@ -172,4 +179,4 @@ function CountDownToDay(
   }
 }
 
-module.exports = { CountDownToDay };
+module.exports = { CountDownToDay, StopCountdown };

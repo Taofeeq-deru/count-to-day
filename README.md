@@ -33,18 +33,22 @@ Or use in a custom hook
 
 ```js
 import { useEffect, useState } from "react";
-import { CountDownToDay } from "count-to-day";
+import { CountDownToDay, StopCountdown } from "count-to-day";
 
 const useCountdown = (dayOfWeek = "friday", timeToCountTo = "00:00:00") => {
   const [count, setCount] = useState({
     days: "",
     hours: "",
     minutes: "",
-    seconds: "",
+    seconds: ""
   });
 
   useEffect(() => {
     CountDownToDay(dayOfWeek, setCount, timeToCountTo);
+
+    return () => {
+      StopCountdown();
+    };
   }, [dayOfWeek, timeToCountTo]);
 
   return { count };
