@@ -50,6 +50,7 @@ function StopCountdown() {
 const pathnamee = () => {
   try {
     if (stop) return "stop";
+    stop = false;
     return window.location.pathname;
   } catch (err) {
     return "";
